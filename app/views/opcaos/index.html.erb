@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Opções</h1> <br>
+
+<table class="table table-striped table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th>Nome</th>
+      <th>Enquete</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @opcaos.each do |opcao| %>
+      <tr>
+        <td><%= link_to opcao.nome, opcao %></td>
+        <td><%= opcao.enquete.titulo %></td>
+        <td><%= link_to '', edit_opcao_path(opcao), class: 'btn btn-outline-primary fas fa-edit fa-sm', title: "Editar" %></td>
+        <td><%= link_to '', opcao, method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-outline-danger fas fa-trash-alt fa-sm', title: "Excluir" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    
+<br>
+<%= link_to '', new_opcao_path, class: 'btn btn-outline-success fa fa-plus', title: "Nova Opção" %>

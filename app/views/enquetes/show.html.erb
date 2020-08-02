@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p> <br>
+
+<p>
+  <h4><strong>Título:</strong> <%= @enquete.titulo %> </h4>
+</p>
+<br>
+<p>
+  <h4><strong>Descrição:</strong> <%= @enquete.descricao %> </h4>
+</p>
+<br>
+<br>
+<%= link_to '', edit_enquete_path(@enquete), class: 'btn btn-outline-primary fas fa-edit', title: "Editar" %>
+<%= link_to '', enquetes_path, class: 'btn btn-outline-secondary fa fa-list-ol', title: "Todas" %>

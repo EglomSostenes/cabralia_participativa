@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Classificação da Enquete: <%= @enquete.titulo%></h1> <br>
+
+<h3> <%= @enquete.descricao %></h3><br>
+
+<h4 style="text-align: center"> Com <%= @primeiro.pontos %> votos o vencedor é: </h4>
+<h3 style="text-align: center; color: green;"> <%= @primeiro.nome %> </h3> <br>
+
+<% posicao = 1%>
+
+<table class="table table-striped table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th>Posição</th>
+      <th>Opção</th>
+      <th>Pontuação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @opcoes.each do |opcao| %>
+      <tr>
+        
+        <% if posicao == 1%>
+          <td style="color: green"> <%= posicao %> </td>
+          <td style="color: green"><%= opcao.nome %></td>
+          <td style="color: green"><%= opcao.pontos %></td>
+        <% else %>
+          <td> <%= posicao %> </td>
+          <td><%= opcao.nome %></td>
+          <td><%= opcao.pontos %></td>
+        <% end %>
+        
+      </tr>
+      <% posicao = posicao + 1%>
+    <% end %>
+  </tbody>
+</table>
+

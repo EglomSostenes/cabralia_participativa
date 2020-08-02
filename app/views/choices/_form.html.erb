@@ -1,0 +1,24 @@
+<%= form_with(model: choice, local: true) do |form| %>
+  <% if choice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(choice.errors.count, "error") %> prohibited this choice from being saved:</h2>
+
+      <ul>
+        <% choice.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="bs-callout bs-callout-primary">
+    <div class="form-group col-md-12">
+      <%= form.label :opcao_id, "Escolha a opção" %>
+      <%= form.collection_select(:opcao_id, @opcoes, :id, :nome, {include_blank: true}, class: 'form-control') %>            
+    </div>
+  </div>
+
+  <div class="actions pull-right col-md-6">
+    <%= form.submit "Enviar"%>
+  </div>
+<% end %>

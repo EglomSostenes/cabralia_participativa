@@ -1,0 +1,13 @@
+<div>
+    <h3> <%= @enquete.titulo %> </h3> <br>
+    <h4> <%= @enquete.descricao%> </h4> <br>
+<div>
+
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+        <h1 style="text-align:center;">Voto</h1>
+        <div> <%= render 'form', choice: @choice %> </div>
+    <div>
+</div>

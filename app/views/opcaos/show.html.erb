@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h4><strong>Nome:</strong> <%= @opcao.nome %> </h4>
+</p>
+<br>
+<p>
+  <h4><strong>Enquete:</strong> <%= @opcao.enquete.descricao %> </h4>
+</p>
+<br>
+<%= link_to '', edit_opcao_path(@opcao), class: 'btn btn-outline-primary fas fa-edit', title: "Editar" %>
+<%= link_to '', opcaos_path, class: 'btn btn-outline-secondary fa fa-list-ol', title: "Todas" %>

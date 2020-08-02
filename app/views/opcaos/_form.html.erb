@@ -1,0 +1,32 @@
+<%= form_with(model: opcao, local: true) do |form| %>
+  <% if opcao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(opcao.errors.count, "error") %> prohibited this opcao from being saved:</h2>
+
+      <ul>
+        <% opcao.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="bs-callout bs-callout-primary">
+
+    <div class="form-group col-md-12">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :enquete_id, "Enquete" %>
+      <%= form.collection_select(:enquete_id, Enquete.all, :id, :titulo, {include_blank: true}, class: 'form-control') %>            
+    </div>
+
+  </div>
+
+  <div class="actions pull-right col-md-6">
+    <%= link_to 'Todas', opcaos_path, class: 'btn btn-default' %>
+    <%= form.submit "Enviar"%>
+  </div>
+<% end %>

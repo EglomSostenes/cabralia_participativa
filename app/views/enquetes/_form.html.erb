@@ -1,0 +1,40 @@
+<%= form_with(model: enquete, local: true) do |form| %>
+  <% if enquete.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(enquete.errors.count, "error") %> prohibited this enquete from being saved:</h2>
+
+      <ul>
+        <% enquete.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="bs-callout bs-callout-primary">
+
+    <div class="form-group col-md-12">
+      <%= form.label :titulo %>
+      <%= form.text_field :titulo, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-12">
+      <%= form.label :descricao %>
+      <%= form.text_field :descricao, class: 'form-control' %>
+    </div>
+  </div> <br>
+
+  <div class="bs-callout bs-callout-secondary">
+    <fieldset>
+        <legend>Opções:</legend>
+        <%= form.fields_for :opcaos do |opcaos_form| %>
+            <%= render "opcao_fields", f: opcaos_form %>
+        <% end %>
+        <%= link_to_add_fields "Adicionar", form, :opcaos %>
+    </fieldset>
+  </div>
+
+  <div class="actions pull-right col-md-6">
+    <%= link_to 'Todas', enquetes_path, class: 'btn btn-default' %>
+    <%= form.submit "Enviar"%>
+  </div>
+<% end %>
